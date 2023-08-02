@@ -4,9 +4,10 @@
 
  To configure create a Action with the following main.yml
 
- name: Scrape
-on:
- workflow_dispatch:
+```
+name: Scrape
+  on:
+    workflow_dispatch:
 jobs:
   scrape:
     name: "Scrape latest photo"
@@ -37,3 +38,4 @@ jobs:
           git add .
           git commit --allow-empty -m "[$(date +"%F %H:%M:%S %Z")]: image captured"
           git push
+```
