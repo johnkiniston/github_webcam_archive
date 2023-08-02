@@ -5,12 +5,10 @@ import { format } from "https://deno.land/std@0.91.0/datetime/mod.ts";
 
 const env = Deno.env.toObject();
 const dir = env.DIR;
-const linkName = env.LINKNAME;
 const url = env.URL;
-const dateFormat = env.DATEFORMAT;
-const dateFile = format(new Date(),dateFormat).concat('.jpg'); // Filename format and suffiz 
+const dateFile = format(new Date(),env.DATEFORMAT).concat('.jpg'); // Filename format and suffiz 
 const latestDateFile = path.join(dir, dateFile);
-const latestFile = path.join(dir, linkName);
+const latestFile = path.join(dir, env.LINKNAME;);
 
 async function read(url: string) {
   const res = await fetch(`${url}`);
@@ -80,7 +78,6 @@ async function write(data: Uint8Array): Promise<void> {
      return await write(data); // try again
     } else throw error;
   }
-    
 }
 
 if (import.meta.main) await read(url).then(compare);
