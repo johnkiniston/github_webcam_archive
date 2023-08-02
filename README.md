@@ -30,12 +30,10 @@ jobs:
 
       - name: commit + push
         if: ${{ success() }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add .
-          git commit --allow-empty -m "[$(date +"%F %H:%M:%S %Z")]: image captured"
-          git push
+        uses: stefanzweifel/git-auto-commit-action@v4.16.0
+        with:
+                commit_message: Automated Change
+                branch: photos
+                push_options: --force
+                create_branch: true
 ```
