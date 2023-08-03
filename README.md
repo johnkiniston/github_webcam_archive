@@ -8,6 +8,8 @@
 name: Scrape
   on:
     workflow_dispatch:
+env:
+ TZ: "America/Phoenix"
 jobs:
   scrape:
     name: "Scrape latest photo"
@@ -33,7 +35,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4.16.0
         with:
                 commit_message: Automated Change
-                branch: photos
                 push_options: --force
-                create_branch: true
+                
 ```
