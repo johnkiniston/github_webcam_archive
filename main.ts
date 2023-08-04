@@ -8,7 +8,7 @@ const dir = env.DIR;
 const url = env.URL;
 const dateFile = format(new Date(),env.DATEFORMAT).concat('.jpg'); // Filename format and suffiz 
 const latestDateFile = path.join(dir, dateFile);
-const latestFile = path.join(dir, env.LINKNAME;);
+const latestFile = path.join(dir, env.LINKNAME);
 
 async function read(url: string) {
   const res = await fetch(`${url}`);
